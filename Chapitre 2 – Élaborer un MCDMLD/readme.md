@@ -71,4 +71,4 @@ Dessiner un **MCD** pour un blog et le transformer en **MLD**.
 ## 🧾 Résumé et points-clés
 - Le **MCD** est la carte conceptuelle de la base de données
 - Le **MLD** traduit ce schéma en tables et colonnes
-- Les **clés primaires** et **clés étrangères** définissent la structure relationnelle
+- Les **clés primaires** et **clés étrangères** définissent la structure relationnelle .
