@@ -1,6 +1,7 @@
 CREATE DATABASE BlogDB;
 USE BlogDB;
- CREATE TABLE Utilisateur (
+
+CREATE TABLE Utilisateur (
   id INT AUTO_INCREMENT PRIMARY KEY,
   nom VARCHAR(100) NOT NULL,
   email VARCHAR(100) UNIQUE,
@@ -25,8 +26,5 @@ CREATE TABLE Commentaire (
   FOREIGN KEY (id_article) REFERENCES Article(id)
 );
 
-SHOW TABLES;
-
-INSERT INTO Utilisateur (nom, email, mot_de_passe) VALUES ('Alice', 'alice@test.com', '1234');
-
-
+ALTER TABLE Utilisateur ADD INDEX (email);
+ALTER TABLE Utilisateur COMMENT = 'Table des utilisateurs du blog';
