@@ -1,0 +1,40 @@
+-- Create database
+CREATE DATABASE BlogDB;
+USE BlogDB;
+
+-- Table: User
+CREATE TABLE User (
+    UserID INT AUTO_INCREMENT PRIMARY KEY,
+    Name VARCHAR(50) NOT NULL,
+    Email VARCHAR(100) NOT NULL UNIQUE,
+    Password VARCHAR(255) NOT NULL
+);
+
+-- Table: Category
+CREATE TABLE Category (
+    CategoryID INT AUTO_INCREMENT PRIMARY KEY,
+    Name VARCHAR(50) NOT NULL
+);
+
+-- Table: Post
+CREATE TABLE Post (
+    PostID INT AUTO_INCREMENT PRIMARY KEY,
+    UserID INT NOT NULL,
+    CategoryID INT NOT NULL,
+    Title VARCHAR(100) NOT NULL,
+    Content TEXT NOT NULL,
+    CreatedAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (UserID) REFERENCES User(UserID),
+    FOREIGN KEY (CategoryID) REFERENCES Category(CategoryID)
+);
+
+-- Table: Comment
+CREATE TABLE Comment (
+    CommentID INT AUTO_INCREMENT PRIMARY KEY,
+    PostID INT NOT NULL,
+    UserID INT NOT NULL,
+    Content TEXT NOT NULL,
+    CreatedAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (PostID) REFERENCES Post(PostID),
+    FOREIGN KEY (UserID) REFERENCES User(UserID)
+);
