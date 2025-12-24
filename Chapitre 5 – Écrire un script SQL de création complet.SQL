@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 CREATE DATABASE BlogDB;
 USE BlogDB;
  CREATE TABLE Utilisateur (
@@ -30,3 +31,35 @@ SHOW TABLES;
 INSERT INTO Utilisateur (nom, email, mot_de_passe) VALUES ('Alice', 'alice@test.com', '1234');
 
 
+=======
+CREATE DATABASE BlogDB;
+USE BlogDB;
+ CREATE TABLE Utilisateur (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nom VARCHAR(100) NOT NULL,
+  email VARCHAR(100) UNIQUE,
+  mot_de_passe VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE Article (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  titre VARCHAR(150) NOT NULL,
+  contenu TEXT NOT NULL,
+  date_pub DATE,
+  id_utilisateur INT,
+  FOREIGN KEY (id_utilisateur) REFERENCES Utilisateur(id)
+);
+
+CREATE TABLE Commentaire (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  contenu TEXT NOT NULL,
+  auteur VARCHAR(100),
+  date_commentaire DATE,
+  id_article INT,
+  FOREIGN KEY (id_article) REFERENCES Article(id)
+);
+
+SHOW TABLES;
+
+INSERT INTO Utilisateur (nom, email, mot_de_passe) VALUES ('Alice', 'alice@test.com', '1234');
+>>>>>>> 6b16d85bb362ac989fce6908ee74da777d418a4d
